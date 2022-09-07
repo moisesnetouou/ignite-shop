@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Home | Ignite Shop</title>
       </Head>
 
       <h1>Hello World</h1>
