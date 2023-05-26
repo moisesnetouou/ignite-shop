@@ -3,6 +3,7 @@ import { ImageContainer, ProductContainer, ProductDetails } from "./styles"
 import { stripe } from "@/lib/stripe"
 import Stripe from "stripe"
 import Image from "next/image"
+import { GetStaticPaths } from "next"
 
 interface ProductProps {
   product: {
@@ -33,6 +34,19 @@ export default function Product({product}: ProductProps){
       </ProductDetails>
     </ProductContainer>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [
+      {
+        params: { 
+          id: "prod_NxxSdBaKH0AvRn"
+         }
+      }
+    ],
+    fallback: "blocking"
+  }
 }
 
 export const getStaticProps: GetStaticProps<any, {id: string}> = async ({ params }) => {
